@@ -7,11 +7,11 @@ jobs:
       matrix:
         node-version: [12, 14, 16]
         operating-system: [ubuntu-latest, window-latest]
-        inculde:
+        include:
           - node-version: 18
             operating-system: ubuntu-latest
         exclude:
-           - node-version: 2
+          - node-version: 2
             operating-system: window-latest
     # runs-on: ubuntu-latest
     runs-on: ${{matrix.operating-system}}
