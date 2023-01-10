@@ -1,5 +1,8 @@
 name: Maxtri Demo
-on: push
+on:
+  push:
+    branches:
+      - master-sk
 jobs:
   build:
     continue-on-error: true
