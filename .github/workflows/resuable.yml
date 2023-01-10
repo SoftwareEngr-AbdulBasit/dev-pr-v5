@@ -7,9 +7,9 @@ on:
         required: false
         default: dist
         type: string
-      secrets:
-        some-scret:
-          required: false
+      # secrets:
+      #   some-scret:
+      #     required: false
     outputs:
       result:
         description: The Result of steps
