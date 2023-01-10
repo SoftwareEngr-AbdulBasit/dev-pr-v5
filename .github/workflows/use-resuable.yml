@@ -90,6 +90,9 @@ jobs:
     uses: ./.github/workflows/resuable.yml
     with:
       artifacts-name: dist-files
+    # secrets:
+    #   some-scret: ${{secrets.name}}
+
     # runs-on: ubuntu-latest
     # steps:
     #   - name: Get build artifacts
@@ -100,6 +103,12 @@ jobs:
     #     run: ls
     #   - name: Deploy
     #     run: echo "Deploying..."
+  print-deploy-result:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Deploy
+        run: echo "${{needs.deploy.outputs.result}}"
   report:
     needs: [deploy, lint]
     if: failure()
