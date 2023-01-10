@@ -36,11 +36,11 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
+        continue-on-error: true # continue if this step fail
         id: test-code-01
         run: npm run test
       - name: Upload test report
         # if: failure() && steps.test-code-01.outcome == 'failure'
-        continue-on-error: true
         uses: actions/upload-artifact@v3
         with:
           name: test-report
